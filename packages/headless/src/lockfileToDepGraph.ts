@@ -69,9 +69,14 @@ export interface DirectDependenciesByImporterId {
   [importerId: string]: { [alias: string]: string }
 }
 
+export interface DepHierarchy {
+  [depPath: string]: Record<string, DepHierarchy>
+}
+
 export interface LockfileToDepGraphResult {
   directDependenciesByImporterId: DirectDependenciesByImporterId
   graph: DependenciesGraph
+  hierarchy?: DepHierarchy
 }
 
 export default async function lockfileToDepGraph (

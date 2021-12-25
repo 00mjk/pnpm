@@ -84,6 +84,7 @@
     "@pnpm/package-requester": "workspace:15.2.5",
     "@pnpm/read-package-json": "workspace:5.0.8",
     "@pnpm/read-project-manifest": "workspace:2.0.9",
+    "@pnpm/real-hoist": "workspace:^0.0.0",
     "@pnpm/store-controller-types": "workspace:11.0.9",
     "@pnpm/symlink-dependency": "workspace:4.0.10",
     "@pnpm/types": "workspace:7.7.1",

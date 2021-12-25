@@ -1064,6 +1064,7 @@ importers:
       '@pnpm/read-package-json': workspace:5.0.8
       '@pnpm/read-project-manifest': workspace:2.0.9
       '@pnpm/read-projects-context': workspace:5.0.13
+      '@pnpm/real-hoist': workspace:^0.0.0
       '@pnpm/store-controller-types': workspace:11.0.9
       '@pnpm/store-path': ^5.0.0
       '@pnpm/symlink-dependency': workspace:4.0.10
@@ -1105,6 +1106,7 @@ importers:
       '@pnpm/package-requester': link:../package-requester
       '@pnpm/read-package-json': link:../read-package-json
       '@pnpm/read-project-manifest': link:../read-project-manifest
+      '@pnpm/real-hoist': link:../real-hoist
       '@pnpm/store-controller-types': link:../store-controller-types
       '@pnpm/symlink-dependency': link:../symlink-dependency
       '@pnpm/types': link:../types
@@ -3028,6 +3030,23 @@ importers:
     devDependencies:
       '@pnpm/logger': 4.0.0
       '@pnpm/read-projects-context': 'link:'
+
+  packages/real-hoist:
+    specifiers:
+      '@pnpm/lockfile-file': workspace:4.2.4
+      '@pnpm/lockfile-utils': workspace:3.1.4
+      '@pnpm/logger': ^4.0.0
+      '@pnpm/real-hoist': 'link:'
+      '@yarnpkg/nm': ^3.0.1-rc.8
+      dependency-path: workspace:8.0.8
+    dependencies:
+      '@pnpm/lockfile-utils': link:../lockfile-utils
+      '@yarnpkg/nm': 3.0.1-rc.8
+      dependency-path: link:../dependency-path
+    devDependencies:
+      '@pnpm/lockfile-file': link:../lockfile-file
+      '@pnpm/logger': 4.0.0
+      '@pnpm/real-hoist': 'link:'
 
   packages/remove-bins:
     specifiers:
@@ -5754,6 +5773,14 @@ packages:
 
   /@yarnpkg/lockfile/1.1.0:
     resolution: {integrity: sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==}
+    dev: false
+
+  /@yarnpkg/nm/3.0.1-rc.8:
+    resolution: {integrity: sha512-EuYgE1UGieFL3Mm0OIVnOtKcTqTdRZl2jRsr6/ZUxsTj0pkC7rDVeD1qGCfYWS7HjztRnpyBM73rODif33nRHA==}
+    engines: {node: '>=12 <14 || 14.2 - 14.9 || >14.10.0'}
+    dependencies:
+      '@yarnpkg/core': 3.2.0-rc.8
+      '@yarnpkg/fslib': 2.6.1-rc.3
     dev: false
 
   /@yarnpkg/parsers/2.3.0:
@@ -12289,6 +12316,7 @@ packages:
 
   /npmlog/4.1.2:
     resolution: {integrity: sha512-2uUqazuKlTaSI/dC8AzicUck7+IrEaOnN/e0jd3Xtt1KcGpwx30v50mL7oPyr/h9bL3E4aZccVwpwP+5W9Vjkg==}
+    requiresBuild: true
     dependencies:
       are-we-there-yet: 1.1.7
       console-control-strings: 1.1.0

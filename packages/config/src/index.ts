@@ -462,7 +462,7 @@ export default async (
   if (!pnpmConfig.noProxy) {
     pnpmConfig.noProxy = pnpmConfig['noproxy'] ?? getProcessEnv('no_proxy')
   }
-  pnpmConfig.enablePnp = pnpmConfig['nodeLinker'] === 'pnp'
+  pnpmConfig.enablePnp = pnpmConfig.nodeLinker === 'pnp'
 
   if (opts.checkUnknownSetting) {
     const settingKeys = Object.keys({
